@@ -12,14 +12,21 @@
           <p class="login-box-msg">Sign in to start your session</p>
           <form action="/authlogin" method="post">
             <div class="input-group mb-3">
-              <select name="url" class="form-control" id="url">
-                <% if (data) { %> <% data.forEach(server => { %>
-                <option value=""><%= server.Server%></option>
-                <% }) %> <% } %>
+              <select class="custom-select" id="server" name="server">
+                <option selected>--- Pilih ---</option>
+                <% data.forEach(server => { %>
+                <option value="<%= server.Url %> "><%= server.Server %></option>
+                <% }) %>
               </select>
             </div>
             <div class="input-group mb-3">
-              <input type="email" class="form-control" placeholder="Email" />
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Email"
+                id="email"
+                name="email"
+              />
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-envelope"></span>
@@ -31,6 +38,8 @@
                 type="password"
                 class="form-control"
                 placeholder="Password"
+                id="password"
+                name="password"
               />
               <div class="input-group-append">
                 <div class="input-group-text">
