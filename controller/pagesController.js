@@ -12,6 +12,7 @@ module.exports = {
   },
   login: function (req, res) {
     Pages.getData(req.con, function (err, rows) {
+      const servers = rows;
       res.render("auth/pages/loginPage", { data: rows });
     });
   },
