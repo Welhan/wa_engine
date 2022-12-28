@@ -12,7 +12,6 @@ module.exports = {
   },
   login: function (req, res) {
     Pages.getData(req.con, function (err, rows) {
-      // console.log(rows)
       res.render("auth/pages/loginPage", { data: rows });
     });
   },
